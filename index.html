@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有限会社NeoDream｜大阪のアクアリウムレンタル｜空間演出対応</title>
+  <meta name="description" content="有限会社ネオ・ドリームは大阪のアクアリウムレンタル・設置・メンテナンス専門会社。USJ・関西万博出展の実績。空間演出・ブランディングをワンストップで提供。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'メイリオ', sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+
+    /* ===== HEADER ===== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 0 32px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    /* images/logo.png  (元: 497baf_50f28c76462a4d60a44a81456e9fece0~mv2.png) */
+    .header-logo { height: 31px; width: auto; }
+    .header-company {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem; font-weight: 600; color: #333; letter-spacing: 0.05em;
+    }
+    .header-right { display: flex; align-items: center; gap: 20px; }
+    .header-tel { font-size: 1.2rem; font-weight: 700; color: #1a6e7a; letter-spacing: 0.05em; }
+    .header-hours { font-size: 0.72rem; color: #888; }
+    .btn-header {
+      background: #1a6e7a; color: #fff; padding: 10px 22px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
+      border-radius: 3px; transition: background 0.2s; white-space: nowrap;
+    }
+    .btn-header:hover { background: #125560; }
+
+    /* ===== HERO ===== */
+    #hero { margin-top: 70px; }
+    .hero-slider-wrap {
+      position: relative; width: 100%;
+      aspect-ratio: 980/735; max-height: 80vh; overflow: hidden;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity 1.5s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    /* images/hero1.jpg … hero4.jpg  (元: 各スライド画像) */
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .slide-counter {
+      position: absolute; bottom: 10px; left: 16px;
+      color: rgba(255,255,255,0.8); font-size: 0.75rem; z-index: 5;
+    }
+    .slide-dots {
+      position: absolute; bottom: 12px; right: 16px;
+      display: flex; gap: 6px; z-index: 5;
+    }
+    .slide-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s;
+    }
+    .slide-dot.active { background: #fff; }
+    .hero-text {
+      background: #fff; text-align: center; padding: 50px 20px 60px;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400; letter-spacing: 0.2em; color: #222; margin-bottom: 16px;
+    }
+    .hero-sub { font-size: 1rem; color: #555; margin-bottom: 6px; letter-spacing: 0.08em; }
+    .hero-company {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem; color: #333; margin: 20px 0 30px; letter-spacing: 0.1em;
+    }
+    .btn-hero {
+      display: inline-block; background: #1a6e7a; color: #fff;
+      padding: 14px 48px; font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.1em; border-radius: 3px; transition: background 0.2s;
+    }
+    .btn-hero:hover { background: #125560; }
+
+    /* ===== STATS ===== */
+    #stats { background: #f5f5f5; }
+    .stats-inner {
+      max-width: 980px; margin: 0 auto;
+      display: flex; justify-content: center;
+    }
+    .stat-col {
+      flex: 1; max-width: 320px; text-align: center;
+      padding: 36px 20px; border-right: 1px solid #ddd;
+    }
+    .stat-col:last-child { border-right: none; }
+    /* images/bubble-icon.png  (元: 497baf_b9bc9943acd8415e8e892241e577414f~mv2.png) */
+    .stat-icon { width: 80px; height: 73px; margin: 0 auto 12px; object-fit: contain; }
+    .stat-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.4rem; font-weight: 700; color: #1a6e7a; line-height: 1.4;
+    }
+
+    /* ===== SECTION BASE ===== */
+    .sec { padding: 70px 20px; }
+    .sec.bg-gray { background: #f5f5f5; }
+    .sec-inner { max-width: 980px; margin: 0 auto; }
+    .sec-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700;
+      text-align: center; color: #222; letter-spacing: 0.1em; margin-bottom: 10px;
+    }
+    .sec-dots {
+      text-align: center; font-size: 1.1rem; color: #aaa;
+      letter-spacing: 0.5em; margin-bottom: 44px;
+    }
+
+    /* ===== ACHIEVEMENTS ===== */
+    .achievement-sub {
+      font-family: 'Noto Serif JP', serif; font-size: 1.3rem;
+      text-align: center; color: #333; margin-bottom: 36px; letter-spacing: 0.08em;
+    }
+    .achievement-photos {
+      display: flex; gap: 16px; justify-content: center; margin-bottom: 30px;
+    }
+    /*
+      images/achievement1.jpg (元: 497baf_25348472ad9e4e708c385ebd39bc30f9~mv2.jpg)
+      images/achievement2.jpg (元: 497baf_16388d04101642ff8c6114cf8a619907~mv2.jpeg / IMG_1941.jpeg)
+      images/achievement3.jpg (元: 497baf_1f4048a9778f4672a1dacbbd63e62e9f~mv2.jpeg / IMG_5562.jpeg)
+    */
+    .achievement-photos img {
+      width: 387px; height: 218px; object-fit: cover; flex-shrink: 0;
+    }
+    .achievement-desc {
+      font-size: 0.95rem; color: #555; text-align: center;
+      line-height: 2; max-width: 800px; margin: 0 auto;
+    }
+
+    /* ===== PROBLEMS / AQUANATURAL ===== */
+    /*
+      背景: images/bg-problems.png  (元: 497baf_013f218b145043eda7cd252d173cd7b9~mv2.png)
+    */
+    #problems {
+      position: relative; overflow: hidden;
+    }
+    .problems-bg {
+      position: absolute; inset: 0;
+      background: url('images/bg-problems.png') center/cover no-repeat;
+      opacity: 0.1; pointer-events: none;
+    }
+    .problems-rel { position: relative; z-index: 1; }
+
+    .problem-list { text-align: center; margin-bottom: 50px; }
+    .problem-item { font-size: 1.05rem; color: #333; margin-bottom: 14px; }
+
+    /* ---- 悩み→解決ブロック: 左=魚イラスト＋ロゴ, 右=テキスト ---- */
+    .problems-solution-row {
+      display: flex; align-items: center; gap: 40px; margin-bottom: 0;
+    }
+    .problems-left { flex-shrink: 0; text-align: center; }
+    /*
+      images/fish-illust.png   (元: 497baf_9a0b20d9e18f484eb9ffea4f5fb5a0cc~mv2.png)
+      images/logo-mark.png     (元: 497baf_de2411b507214f03af7026d7cfd6a45b~mv2.png / ダウンロード(1)_edited.png)
+    */
+    .problems-fish { width: 388px; height: 281px; object-fit: contain; display: block; }
+    .problems-logo-mark { width: 137px; height: 103px; object-fit: contain; margin: 20px auto 0; display: block; }
+    .problems-right { flex: 1; text-align: center; }
+    .problems-lead { font-size: 1rem; color: #333; margin-bottom: 4px; }
+    .problems-brand {
+      font-family: 'Noto Serif JP', serif; font-size: 2.4rem; font-weight: 700;
+      color: #1a6e7a; letter-spacing: 0.1em; margin-bottom: 4px;
+    }
+    .problems-ga { font-size: 1rem; color: #333; margin-bottom: 4px; }
+    .problems-resolve { font-size: 1.05rem; color: #333; font-weight: 700; margin-bottom: 0; }
+
+    /* ---- アクアナチュラルとは: タイトル＋説明＋2枚の正方形画像 ---- */
+    .aquanatural-block { margin-top: 60px; }
+    .aquanatural-title {
+      font-family: 'Noto Serif JP', serif; font-size: 1.4rem; font-weight: 700;
+      text-align: center; color: #222; margin-bottom: 20px; letter-spacing: 0.05em;
+    }
+    .aquanatural-desc {
+      font-size: 0.95rem; color: #555; line-height: 2;
+      text-align: center; max-width: 720px; margin: 0 auto 36px;
+    }
+    .aquanatural-photos {
+      display: flex; gap: 20px; justify-content: center;
+    }
+    /*
+      images/aquanatural1.jpg  (元: 497baf_33419ce561fc4c30a21bea81e825533e~mv2.jpg 337×337px正方形)
+      images/aquanatural2.jpg  (元: 497baf_f320b6fbdb0744b58443b7e848481c06~mv2.jpeg 332×332px正方形)
+    */
+    .aquanatural-photos img {
+      width: 337px; height: 337px; object-fit: cover; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* ===== NOT JUST (気泡装飾＋テキスト) ===== */
+    #notjust { overflow: hidden; }
+    .bubbles-top {
+      display: flex; justify-content: center; align-items: flex-end;
+      gap: 16px; padding-top: 40px; flex-wrap: wrap;
+    }
+    .bubbles-bottom {
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: 16px; padding-bottom: 40px; flex-wrap: wrap;
+    }
+    /*
+      images/bubble.png  (元: 497baf_ae849a75debd48b8a054f5d81e6b086a~mv2.png)
+      同じ画像をwidth/heightで各サイズを再現
+    */
+    .notjust-text-block { text-align: center; padding: 30px 20px; }
+    .notjust-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 700;
+      color: #222; margin-bottom: 20px; letter-spacing: 0.05em; line-height: 1.6;
+    }
+    .notjust-desc { font-size: 0.95rem; color: #555; line-height: 2; max-width: 720px; margin: 0 auto; }
+
+    /* ===== REASONS ===== */
+    .reasons-grid { display: flex; gap: 28px; justify-content: center; }
+    .reason-card { flex: 1; max-width: 300px; border: 1px solid #eee; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .reason-num { background: #fff; text-align: center; font-size: 0.75rem; color: #aaa; letter-spacing: 0.2em; padding: 12px 0 6px; font-style: italic; }
+    /*
+      images/reason1.jpg (元: 497baf_3642865077704e488af9f15c61dbb4da~mv2.jpg 274×170px)
+      images/reason2.jpg (元: 497baf_c66f2188c74048a2994c124d10a763fb~mv2.jpg / Neo２.jpg 274×170px)
+      images/reason3.jpg (元: 497baf_e2377d471a6e4245b7219adf0285a4de~mv2.jpg / Neo３.jpg 274×170px)
+    */
+    .reason-card img.reason-photo { width: 100%; height: 170px; object-fit: cover; }
+    .reason-body { padding: 18px 20px 24px; }
+    .reason-card-title {
+      font-family: 'Noto Serif JP', serif; font-size: 0.95rem; font-weight: 700;
+      color: #1a6e7a; margin-bottom: 12px; line-height: 1.5;
+    }
+    .reason-list { list-style: none; }
+    .reason-list li {
+      font-size: 0.82rem; color: #555; padding-left: 12px;
+      position: relative; line-height: 1.9;
+    }
+    .reason-list li::before { content: '・'; position: absolute; left: -2px; color: #1a6e7a; }
+
+    /* ===== TESTIMONIALS ===== */
+    .satisfaction-bar {
+      background: #1a6e7a; color: #fff; text-align: center;
+      padding: 14px 20px; font-size: 1rem; letter-spacing: 0.08em; margin-bottom: 48px;
+    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .t-card { background: #fff; padding: 30px 32px; border: 1px solid #e8e8e8; }
+    .t-title { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 700; color: #222; margin-bottom: 8px; line-height: 1.5; }
+    .t-from { font-size: 0.8rem; color: #888; margin-bottom: 12px; }
+    .t-body { font-size: 0.87rem; color: #555; line-height: 2; }
+    .t-note { text-align: center; font-size: 0.88rem; color: #777; margin-top: 28px; }
+
+    /* ===== CTA BAND ===== */
+    .cta-band { position: relative; overflow: hidden; }
+    /*
+      images/cta-bg.jpg  (元: 497baf_2267a35bd9be4d278688389754b7dd1e~mv2.jpg)
+    */
+    .cta-band-bg {
+      position: absolute; inset: 0;
+      background: url('images/cta-bg.jpg') center/cover no-repeat;
+    }
+    .cta-band-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+    .cta-band-inner {
+      position: relative; z-index: 2; text-align: center;
+      padding: 60px 20px; color: #fff;
+    }
+    .cta-band-title {
+      font-family: 'Noto Serif JP', serif; font-size: 1.1rem;
+      margin-bottom: 32px; letter-spacing: 0.08em;
+    }
+    .cta-options { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .cta-opt-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .cta-tel { display: block; font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .cta-hours { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+    .cta-divider { color: rgba(255,255,255,0.3); font-size: 2rem; }
+    .btn-cta {
+      display: inline-block; background: #fff; color: #1a6e7a;
+      padding: 12px 36px; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.08em; border-radius: 3px; transition: opacity 0.2s;
+    }
+    .btn-cta:hover { opacity: 0.85; }
+    .cta-24h { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+    /* ===== GALLERY ===== */
+    .gallery-desc { text-align: center; font-size: 0.9rem; color: #777; margin-bottom: 36px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery-item { overflow: hidden; }
+    /*
+      images/gallery01.jpg … gallery15.jpg
+      (元: 各ギャラリー画像 480×360px)
+    */
+    .gallery-item img {
+      width: 100%; height: 240px; object-fit: cover;
+      transition: transform 0.4s; display: block;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    /* ===== PLANS ===== */
+    .plans-sub { text-align: center; font-size: 0.95rem; color: #888; margin-bottom: 36px; letter-spacing: 0.1em; }
+    .plans-grid { display: flex; gap: 24px; justify-content: center; margin-bottom: 14px; }
+    .plan-card { flex: 1; max-width: 310px; border: 1px solid #e0e0e0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    /*
+      images/plan1.jpg (元: 497baf_6a7684bee2db465497ce4c556cafc804~mv2.jpg / 8a714f44... 325×160px)
+      images/plan2.jpg (元: 497baf_c6f0ffc2bf124a4aa335e3028a78c92d~mv2.jpg / 60a5bf3a... 325×160px)
+      images/plan3.jpg (元: 497baf_fc4175e7bc6046ccbe21a5ad03ec70a3~mv2.jpg / f5604861... 325×160px)
+    */
+    .plan-photo { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .plan-num { background: #1a6e7a; color: #fff; text-align: center; font-size: 0.75rem; letter-spacing: 0.2em; padding: 8px; font-style: italic; }
+    .plan-body { padding: 20px 22px 28px; }
+    .plan-name { font-family: 'Noto Serif JP', serif; font-size: 1.1rem; font-weight: 700; color: #1a6e7a; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #1a6e7a; }
+    .plan-dlabel { font-size: 0.78rem; font-weight: 700; color: #333; margin-bottom: 4px; }
+    .plan-dbody { font-size: 0.82rem; color: #555; line-height: 1.9; margin-bottom: 14px; }
+    .plan-note { text-align: center; font-size: 0.78rem; color: #888; margin-bottom: 48px; }
+    .maint-heading { font-family: 'Noto Serif JP', serif; font-size: 1.2rem; text-align: center; color: #333; margin-bottom: 20px; letter-spacing: 0.08em; }
+    .maint-table { width: 100%; border-collapse: collapse; }
+    .maint-table th, .maint-table td { border: 1px solid #ddd; padding: 14px 18px; font-size: 0.88rem; line-height: 1.8; text-align: left; vertical-align: top; }
+    .maint-table thead th { background: #1a6e7a; color: #fff; font-weight: 700; }
+    .maint-table tbody tr:nth-child(odd) { background: #f8f8f8; }
+    .maint-table td:first-child { font-weight: 700; color: #1a6e7a; white-space: nowrap; }
+    .maint-note { font-size: 0.78rem; color: #888; margin-top: 10px; }
+
+    /* ===== FAQ ===== */
+    .faq-wrap { background: #fff; border-radius: 4px; padding: 10px 0; }
+    .faq-item { border-bottom: 1px solid #eee; }
+    .faq-q {
+      padding: 20px 28px; font-size: 0.95rem; font-weight: 700; color: #333;
+      cursor: pointer; display: flex; align-items: flex-start; gap: 12px; user-select: none;
+    }
+    .faq-qmark {
+      min-width: 26px; height: 26px; background: #1a6e7a; color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .faq-qtext { flex: 1; line-height: 1.6; }
+    .faq-toggle { color: #aaa; font-size: 1.2rem; margin-left: auto; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a { padding: 0 28px 20px 66px; font-size: 0.88rem; color: #666; line-height: 2; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ===== STORY ===== */
+    .story-episode-title { font-family: 'Noto Serif JP', serif; font-size: 1.3rem; font-weight: 700; text-align: center; color: #333; letter-spacing: 0.08em; margin-bottom: 40px; }
+    /* 創業エピソード: テキスト左、写真右(1枚目)、その下に気泡、その後2枚目 */
+    .story-row1 { display: flex; gap: 50px; align-items: flex-start; margin-bottom: 20px; }
+    .story-text-block { flex: 1; }
+    .story-text { font-size: 0.92rem; color: #555; line-height: 2.1; }
+    /*
+      images/founder1.jpg (元: 497baf_5b3ea3c9e84348fdaa855443cb7b05c9~mv2.jpeg / IMG_2027.jpeg 324×324px円形)
+      images/founder2.jpg (元: 497baf_2c530ba01c5c48d59e57e7ba9d29d2ba~mv2.jpeg / IMG_2073.jpeg 324×324px円形)
+    */
+    .story-photo-round {
+      width: 280px; height: 280px; border-radius: 50%;
+      object-fit: cover; border: 3px solid #1a6e7a; flex-shrink: 0; display: block;
+    }
+    .bubbles-story {
+      display: flex; justify-content: center; align-items: flex-end;
+      gap: 14px; margin: 20px 0; flex-wrap: wrap;
+    }
+    .story-row2 { display: flex; justify-content: flex-end; margin-bottom: 40px; }
+    .five-smiles { background: #f5f5f5; border-left: 4px solid #1a6e7a; padding: 36px 40px; margin-bottom: 36px; }
+    .five-title { font-family: 'Noto Serif JP', serif; font-size: 1.2rem; font-weight: 700; color: #1a6e7a; margin-bottom: 20px; }
+    .smile-list { list-style: none; }
+    .smile-list li { font-size: 0.9rem; color: #444; padding: 6px 0; border-bottom: 1px solid #e0e0e0; line-height: 1.7; }
+    .smile-list li:last-child { border-bottom: none; }
+    .story-closing { text-align: center; font-size: 0.95rem; color: #555; line-height: 2; }
+    .story-closing strong { color: #1a6e7a; }
+
+    /* ===== ABOUT ===== */
+    .about-table { width: 100%; border-collapse: collapse; background: #fff; }
+    .about-table tr { border-bottom: 1px solid #e8e8e8; }
+    .about-table th { width: 180px; padding: 16px 20px; background: #1a6e7a; color: #fff; font-size: 0.85rem; font-weight: 700; text-align: left; letter-spacing: 0.05em; vertical-align: top; }
+    .about-table td { padding: 16px 24px; font-size: 0.88rem; color: #444; line-height: 1.9; }
+
+    /* ===== CONTACT ===== */
+    .contact-note { text-align: center; font-size: 0.88rem; color: #777; margin-bottom: 44px; line-height: 2; }
+    .form-grid { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 0.85rem; font-weight: 700; color: #333; }
+    .req { background: #e04040; color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+    .form-input, .form-select, .form-textarea {
+      padding: 11px 14px; border: 1px solid #ccc; border-radius: 3px;
+      font-family: 'Noto Sans JP', sans-serif; font-size: 0.88rem;
+      background: #fafafa; color: #333; outline: none; transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #1a6e7a; background: #fff; }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .btn-submit {
+      align-self: center; background: #1a6e7a; color: #fff; border: none;
+      padding: 14px 60px; font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em;
+      cursor: pointer; border-radius: 3px; transition: background 0.2s; margin-top: 8px;
+    }
+    .btn-submit:hover { background: #125560; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #1a3a42; padding: 48px 20px 28px; color: rgba(255,255,255,0.7); }
+    .footer-inner { max-width: 980px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+    /* images/logo.png (共通ロゴ) */
+    .footer-logo { height: 28px; width: auto; margin-bottom: 10px; }
+    .footer-co { color: #fff; font-family: 'Noto Serif JP', serif; font-size: 1rem; margin-bottom: 8px; }
+    .footer-addr { font-size: 0.78rem; line-height: 1.9; }
+    .footer-right { text-align: right; }
+    .footer-tel { display: block; color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+    .footer-hours { font-size: 0.72rem; margin-bottom: 14px; }
+    .btn-footer { display: inline-block; background: #fff; color: #1a6e7a; padding: 10px 28px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; border-radius: 3px; }
+    .footer-copy { text-align: center; font-size: 0.72rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 22px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      #header { padding: 0 16px; }
+      .header-hours { display: none; }
+      .stats-inner { flex-direction: column; }
+      .stat-col { border-right: none; border-bottom: 1px solid #ddd; max-width: 100%; }
+      .achievement-photos { flex-direction: column; align-items: center; }
+      .achievement-photos img { width: 100%; max-width: 500px; height: auto; }
+      .problems-solution-row { flex-direction: column; align-items: center; }
+      .problems-fish { width: 100%; max-width: 388px; height: auto; }
+      .aquanatural-photos { flex-direction: column; align-items: center; }
+      .aquanatural-photos img { width: 100%; max-width: 340px; height: 340px; }
+      .reasons-grid { flex-direction: column; align-items: center; }
+      .reason-card { max-width: 500px; width: 100%; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .plans-grid { flex-direction: column; align-items: center; }
+      .plan-card { max-width: 500px; width: 100%; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-row1 { flex-direction: column; align-items: center; }
+      .story-photo-round { width: 220px; height: 220px; }
+      .story-row2 { justify-content: center; }
+      .footer-top { flex-direction: column; }
+      .footer-right { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-title { letter-spacing: 0.1em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header id="header">
+  <div class="header-left">
+    <img class="header-logo" src="images/logo.png" alt="有限会社NeoDream">
+    <span class="header-company">有限会社ネオ・ドリーム</span>
+  </div>
+  <div class="header-right">
+    <div>
+      <a href="tel:072-977-3688" class="header-tel">072-977-3688</a>
+      <div class="header-hours">営業時間 9:00-17:00 土日祝日休み</div>
+    </div>
+    <a href="#contact" class="btn-header">お問い合わせはこちら</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-slider-wrap">
+    <div class="hero-slide active"><img src="images/hero1.jpg" alt="アクアリウム1"></div>
+    <div class="hero-slide"><img src="images/hero2.jpg" alt="アクアリウム2"></div>
+    <div class="hero-slide"><img src="images/hero3.jpg" alt="アクアリウム3"></div>
+    <div class="hero-slide"><img src="images/hero4.jpg" alt="アクアリウム4"></div>
+    <div class="slide-counter" id="slideCounter">1/4</div>
+    <div class="slide-dots" id="slideDots">
+      <div class="slide-dot active" onclick="goSlide(0)"></div>
+      <div class="slide-dot" onclick="goSlide(1)"></div>
+      <div class="slide-dot" onclick="goSlide(2)"></div>
+      <div class="slide-dot" onclick="goSlide(3)"></div>
+    </div>
+  </div>
+  <div class="hero-text">
+    <h1 class="hero-title">空間に、息づくアートを。</h1>
+    <p class="hero-sub">アクアリウムで心動かす演出を。</p>
+    <p class="hero-sub">自然と人の調和を提案し、空間価値を高めます。</p>
+    <p class="hero-company">有限会社ネオ・ドリーム</p>
+    <a href="#contact" class="btn-hero">無料相談・お見積もりはこちらから</a>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-col">
+      <img class="stat-icon" src="images/bubble-icon.png" alt="">
+      <div class="stat-title">お客様満足度<br>90%以上</div>
+    </div>
+    <div class="stat-col">
+      <img class="stat-icon" src="images/bubble-icon.png" alt="">
+      <div class="stat-title">設計から設備まで<br>ワンストップ</div>
+    </div>
+    <div class="stat-col">
+      <img class="stat-icon" src="images/bubble-icon.png" alt="">
+      <div class="stat-title">業績<br>30年の信頼</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ACHIEVEMENTS ========== -->
+<section class="sec" style="background:#fff;">
+  <div class="sec-inner">
+    <p class="achievement-sub">USJ導入・関西万博出展の確かな実績</p>
+    <div class="achievement-photos">
+      <img src="images/achievement1.jpg" alt="実績1">
+      <img src="images/achievement2.jpg" alt="実績2">
+      <img src="images/achievement3.jpg" alt="実績3">
+    </div>
+    <p class="achievement-desc">
+      ネオ・ドリームは、ユニバーサルスタジオジャパンや関西万博など、国内有数の大型施設でアクアリウム演出を手掛けてきました。<br>
+      確かな実績と独自のデザイン力で、空間の価値を一段と引き上げます。
+    </p>
+  </div>
+</section>
+
+<!-- ========== PROBLEMS / AQUANATURAL ========== -->
+<!--
+  【アクアナチュラルセクションの構造】
+  元サイトの正確な配置:
+  ┌─────────────────────────────────────────┐
+  │  こんなお悩みありませんか？（中央）         │
+  │  ・・・                                    │
+  │  4つの悩み（中央）                         │
+  │                                           │
+  │  [魚イラスト]   そのお悩み、ネオ・ドリームの │
+  │  [ロゴマーク]   アクアナチュラル            │
+  │                が                          │
+  │                全て解決します！            │
+  │                                           │
+  │  『アクアナチュラル』とは？（中央タイトル）  │
+  │  説明文（中央）                            │
+  │  [正方形画像1]  [正方形画像2]（横並び中央）  │
+  └─────────────────────────────────────────┘
+-->
+<section class="sec bg-gray" id="problems" style="position:relative;overflow:hidden;">
+  <div class="problems-bg"></div>
+  <div class="sec-inner problems-rel">
+    <h2 class="sec-heading">こんなお悩みありませんか？</h2>
+    <div class="sec-dots">・　・　・</div>
+
+    <div class="problem-list">
+      <p class="problem-item">オフィスや店舗が殺風景で、空間の印象を良くしたい</p>
+      <p class="problem-item">来客者や顧客に癒しと特別感を提供する空間を作りたい</p>
+      <p class="problem-item">他社と差別化できる、ブランド価値の高い空間演出をしたい</p>
+      <p class="problem-item">空間に新しい価値や体験を生み出したい</p>
+    </div>
+
+    <!-- 左: 魚イラスト＋ロゴマーク / 右: アクアナチュラルテキスト -->
+    <div class="problems-solution-row">
+      <div class="problems-left">
+        <img class="problems-fish" src="images/fish-illust.png" alt="魚のイラスト">
+        <img class="problems-logo-mark" src="images/logo-mark.png" alt="">
+      </div>
+      <div class="problems-right">
+        <p class="problems-lead">そのお悩み、ネオ・ドリームの</p>
+        <p class="problems-brand">アクアナチュラル</p>
+        <p class="problems-ga">が</p>
+        <p class="problems-resolve">全て解決します！</p>
+      </div>
+    </div>
+
+    <!-- アクアナチュラルとは: 別ブロック（下段） -->
+    <div class="aquanatural-block">
+      <h3 class="aquanatural-title">『アクアナチュラル』とは？</h3>
+      <p class="aquanatural-desc">
+        弊社が手がける、アクアリウムの総称であり、<br>
+        弊社が最重視している、<br>
+        「自然本来の美しさをアクアリウムの中に取り入れること」が、その由来でもあるのです。
+      </p>
+      <!-- 正方形2枚横並び（337px/332px） -->
+      <div class="aquanatural-photos">
+        <img src="images/aquanatural1.jpg" alt="アクアナチュラル事例1">
+        <img src="images/aquanatural2.jpg" alt="アクアナチュラル事例2" style="width:332px;height:332px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NOT JUST (気泡装飾セクション) ========== -->
+<section class="sec" id="notjust" style="padding-top:0;padding-bottom:0;overflow:hidden;">
+  <div class="sec-inner">
+    <!-- 上段の気泡 -->
+    <div class="bubbles-top">
+      <img src="images/bubble.png" width="35" height="40" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="40" height="45" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="72" height="81" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27" height="24" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27" height="24" alt="" aria-hidden="true">
+    </div>
+
+    <div class="notjust-text-block">
+      <h2 class="notjust-heading">私たちは、単なるアクアリウム業者ではありません！</h2>
+      <p class="notjust-desc">
+        企業の「顔」となる空間づくりのパートナーとして、設計・施工・メンテナンス・レンタル・リースまでのすべてをワンストップで提供します。<br>
+        小型水槽から、大型水槽まで、皆様のニーズに合わせて、幅広い対応をさせていただくことが可能です。
+      </p>
+    </div>
+
+    <!-- 下段の気泡（大サイズ含む） -->
+    <div class="bubbles-bottom">
+      <img src="images/bubble.png" width="165" height="187" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="40"  height="45"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="35"  height="40"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="51"  height="57"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27"  height="24"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="180" height="204" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="35"  height="40"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="51"  height="57"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27"  height="35"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="72"  height="81"  alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- ========== REASONS ========== -->
+<section class="sec bg-gray" id="reasons">
+  <div class="sec-inner">
+    <h2 class="sec-heading">アクアナチュラルが選ばれる理由</h2>
+    <div class="sec-dots">・　・　・</div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <img class="reason-photo" src="images/reason1.jpg" alt="業界パイオニア30年">
+        <div class="reason-body">
+          <div class="reason-card-title">業界パイオニア30年の信頼と実績</div>
+          <ul class="reason-list">
+            <li>USJ、関西万博の導入、出展実績</li>
+            <li>多数の公共施設への設置</li>
+            <li>累計1000社以上の企業への導入</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <img class="reason-photo" src="images/reason2.jpg" alt="ワンストップサービス">
+        <div class="reason-body">
+          <div class="reason-card-title">ワンストップサービスで安心</div>
+          <ul class="reason-list">
+            <li>設計から施工まで一貫対応</li>
+            <li>定期メンテナンス完全サポート</li>
+            <li>レンタル・リースプランも選択可能</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03</div>
+        <img class="reason-photo" src="images/reason3.jpg" alt="企業ニーズに特化">
+        <div class="reason-body">
+          <div class="reason-card-title">企業ニーズに特化した提案力</div>
+          <ul class="reason-list">
+            <li>空間デザインとブランディングの融合</li>
+            <li>予算に応じた最適プランの提案</li>
+            <li>短期イベント対応も可能</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="sec" id="testimonials" style="background:#fff;">
+  <div class="sec-inner">
+    <div class="satisfaction-bar">＼　90%以上のお客様に大満足していただいてます！　／</div>
+    <h2 class="sec-heading">お客様の声</h2>
+    <div class="sec-dots">・　・　・</div>
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <div class="t-title">顧客満足度、売上アップにつながりました！</div>
+        <div class="t-from">（東京都神楽坂ステーキハウス オーナー様）</div>
+        <div class="t-body">活き活き泳ぐイケスから魚介類取出し、目の前で調理・提供できるので味もお客様の笑顔・満足度も明らかに違います。</div>
+      </div>
+      <div class="t-card">
+        <div class="t-title">手軽に癒しの空間ができました！</div>
+        <div class="t-from">（大阪市内一般家庭 S様）</div>
+        <div class="t-body">家のリビングに導入しました。手間がかかるのではと心配でしたが、手厚いサポートですぐに美しい空間が完成しました。毎日癒されてます！</div>
+      </div>
+      <div class="t-card">
+        <div class="t-title">施設利用者さまのかわいいマスコットです！</div>
+        <div class="t-from">（和歌山市介護施設スタッフ）</div>
+        <div class="t-body">毎日の呼びかけに寄ってきて答えてくれる金魚さんにとても癒され、施設1番の人気者です。</div>
+      </div>
+      <div class="t-card">
+        <div class="t-title">患者様の満足度とスタッフのモチベーション向上！</div>
+        <div class="t-from">（京都府長岡京市医療施設 事務長）</div>
+        <div class="t-body">患者様の待ち時間のストレスを軽減するために導入しました。待合室が落ち着いた雰囲気になり、スタッフにも「癒される」と好評です。</div>
+      </div>
+      <div class="t-card" style="grid-column:1/-1">
+        <div class="t-title">ニーズに合ったイケスでとても重宝しています！</div>
+        <div class="t-from">（大阪市北新地割烹料理長）</div>
+        <div class="t-body">淡水（鮎・山女・サワガニ）海水（魚・エビ・貝）等、季節にあわせたさまざまな食材をコンパクトに収納できるイケスがとても重宝しています。</div>
+      </div>
+    </div>
+    <p class="t-note">ご家庭でも職場でも、幅広いお客様に癒しと満足をお届けしています！</p>
+  </div>
+</section>
+
+<!-- ========== CTA BAND 1 ========== -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-overlay"></div>
+  <div class="cta-band-inner">
+    <p class="cta-band-title">無料相談・お見積りはお気軽にご連絡ください。</p>
+    <div class="cta-options">
+      <div>
+        <div class="cta-opt-label">＼ お電話でのお問い合わせ ／</div>
+        <a href="tel:072-977-3688" class="cta-tel">072-977-3688</a>
+        <div class="cta-hours">営業時間 9:00-17:00 土日祝日休み</div>
+      </div>
+      <div class="cta-divider">|</div>
+      <div>
+        <div class="cta-opt-label">＼ お問い合わせフォームはこちら ／</div>
+        <a href="#contact" class="btn-cta">お問い合わせはこちら</a>
+        <div class="cta-24h">24時間受付中</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GALLERY ========== -->
+<section class="sec" id="gallery" style="background:#fff;">
+  <div class="sec-inner">
+    <h2 class="sec-heading">施工実績</h2>
+    <p class="gallery-desc">弊社が行ってきた施工事例をご紹介するギャラリーです。</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/gallery01.jpg" alt="施工実績1"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery02.jpg" alt="施工実績2"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery03.jpg" alt="施工実績3"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery04.jpg" alt="施工実績4"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery05.jpg" alt="施工実績5"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery06.jpg" alt="施工実績6"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery07.jpg" alt="施工実績7"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery08.jpg" alt="施工実績8"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery09.jpg" alt="施工実績9"  loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery10.jpg" alt="施工実績10" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery11.jpg" alt="施工実績11" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery12.jpg" alt="施工実績12" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery13.jpg" alt="施工実績13" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery14.jpg" alt="施工実績14" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery15.jpg" alt="施工実績15" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PLANS ========== -->
+<section class="sec bg-gray" id="plans">
+  <div class="sec-inner">
+    <h2 class="sec-heading">選べる３つのサービスプラン</h2>
+    <p class="plans-sub">＼ あなたに最適なプランをご提案 ／</p>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <img class="plan-photo" src="images/plan1.jpg" alt="購買プラン">
+        <div class="plan-num">01</div>
+        <div class="plan-body">
+          <div class="plan-name">購買プラン</div>
+          <div class="plan-dlabel">■ 契約期間</div>
+          <div class="plan-dbody">なし</div>
+          <div class="plan-dlabel">■ プラン内容</div>
+          <div class="plan-dbody">
+            ・淡水水草<br>　W900×D450×H450　150,000〜<br><br>
+            ・海水魚<br>　W900×D450×H450　200,000〜<br><br>
+            ・活魚イケス<br>　W1000×D500×H500(1400)　820,000〜
+          </div>
+        </div>
+      </div>
+      <div class="plan-card">
+        <img class="plan-photo" src="images/plan2.jpg" alt="リースプラン">
+        <div class="plan-num">02</div>
+        <div class="plan-body">
+          <div class="plan-name">リースプラン</div>
+          <div class="plan-dlabel">■ 契約期間</div>
+          <div class="plan-dbody">最低1年</div>
+          <div class="plan-dlabel">■ プラン内容</div>
+          <div class="plan-dbody">
+            ・淡水水草<br>　W900×D450×H450　15,000〜<br><br>
+            ・海水魚<br>　W900×D450×H450　25,000〜
+          </div>
+        </div>
+      </div>
+      <div class="plan-card">
+        <img class="plan-photo" src="images/plan3.jpg" alt="レンタルプラン">
+        <div class="plan-num">03</div>
+        <div class="plan-body">
+          <div class="plan-name">レンタルプラン</div>
+          <div class="plan-dlabel">■ 1回の貸し出し期間</div>
+          <div class="plan-dbody">1日〜30日までの30日区切り（※）</div>
+          <div class="plan-dlabel">■ プラン内容</div>
+          <div class="plan-dbody">
+            ・淡水水草<br>　W900×D450×H450　30,000〜<br><br>
+            ・海水魚<br>　W900×D450×H450　50,000〜<br><br>
+            ・活魚イケス（生体無）<br>　W900×D450×H450　50,000〜
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="plan-note">※搬入出費用・設置費用・撤去費用が別途必要となります。</p>
+    <h3 class="maint-heading">--- メンテナンス業務について ---</h3>
+    <div style="overflow-x:auto;">
+      <table class="maint-table">
+        <thead>
+          <tr><th>プラン</th><th>内容</th><th>契約期間</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>オプションメンテナンス</td>
+            <td>お客様のニーズに合わせたバリューメンテナンス。自分ではなかなか出来ないメンテナンス項目をチョイスしていただき、弊社が代わって行います。（※）</td>
+            <td>1〜5年</td>
+          </tr>
+          <tr>
+            <td>パーフェクトメンテナンス</td>
+            <td>これなら安心、全て任せて整体保証付メンテナンス。全てのメンテナンスを弊社が代わりに行いますので、お客様はただ鑑賞して頂くだけです。（※）</td>
+            <td>1〜5年</td>
+          </tr>
+          <tr>
+            <td>スポットメンテナンス</td>
+            <td>1回限りの清掃でもOKです！メンテナンス項目をチョイスして頂き、弊社が代わって行います。（※）</td>
+            <td>年間契約不要</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="maint-note">※水槽のサイズ・飼育魚種・飼育方法等の詳細を打ち合わせの上、お見積りいたします。</p>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="sec" id="faq" style="background:#f5f5f5;">
+  <div class="sec-inner">
+    <h2 class="sec-heading">よくあるご質問</h2>
+    <div class="sec-dots">・　・　・</div>
+    <div class="faq-wrap">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-qmark">Q</span>
+          <span class="faq-qtext">１. 初期費用はどれくらいかかりますか？</span>
+          <span class="faq-toggle">＋</span>
+        </div>
+        <div class="faq-a">水槽サイズや設置場所により異なりますが、企業向けは30万円からご提案可能です。リースプランなら月額3万円〜で導入できます。無料お見積りで詳細をご案内いたします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-qmark">Q</span>
+          <span class="faq-qtext">２. メンテナンスはどの程度の頻度で必要ですか？</span>
+          <span class="faq-toggle">＋</span>
+        </div>
+        <div class="faq-a">基本的に月1回の定期メンテナンスを推奨しています。水質管理、清掃、魚の健康チェックを専門スタッフが行います。緊急時は24時間ご連絡可能でございます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-qmark">Q</span>
+          <span class="faq-qtext">３. 設置工事で営業に支障はありませんか？</span>
+          <span class="faq-toggle">＋</span>
+        </div>
+        <div class="faq-a">営業時間外や休日の工事も可能です。事前の詳細な打ち合わせで、お客様のビジネスに影響が出ないよう配慮いたします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-qmark">Q</span>
+          <span class="faq-qtext">４. 魚が死んでしまった場合はどうなりますか？</span>
+          <span class="faq-toggle">＋</span>
+        </div>
+        <div class="faq-a">レンタル＆リースプランであれば生体保証付きです。無償で補充します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-qmark">Q</span>
+          <span class="faq-qtext">５. 契約期間の縛りはありますか？</span>
+          <span class="faq-toggle">＋</span>
+        </div>
+        <div class="faq-a">レンタルは1日から、リースは最低1年からになります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA BAND 2 ========== -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-overlay"></div>
+  <div class="cta-band-inner">
+    <p class="cta-band-title">無料相談・お見積りはお気軽にご連絡ください。</p>
+    <div class="cta-options">
+      <div>
+        <div class="cta-opt-label">＼ お電話でのお問い合わせ ／</div>
+        <a href="tel:072-977-3688" class="cta-tel">072-977-3688</a>
+        <div class="cta-hours">営業時間 9:00-17:00 土日祝日休み</div>
+      </div>
+      <div class="cta-divider">|</div>
+      <div>
+        <div class="cta-opt-label">＼ お問い合わせフォームはこちら ／</div>
+        <a href="#contact" class="btn-cta">お問い合わせはこちら</a>
+        <div class="cta-24h">24時間受付中</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== STORY ========== -->
+<section class="sec" id="story" style="background:#fff;">
+  <div class="sec-inner">
+    <h2 class="sec-heading">5つの笑顔で自然と共生</h2>
+    <div class="sec-dots">・　・　・</div>
+    <p class="story-episode-title">創業エピソード</p>
+
+    <!-- テキスト左、代表写真1(丸)右 -->
+    <div class="story-row1">
+      <div class="story-text-block">
+        <p class="story-text">
+          30年前、私がアクアリウムの世界に足を踏み入れたきっかけは、ふと立ち寄った喫茶店でした。殺風景な空間で時間を過ごしながら、もし美しい水槽があったら、より良い癒しの空間、笑顔あふれる空間になるのではないかと感じたのです。<br><br>
+          その時、私はただの愛好者としてではなく、アクアリウムの可能性を広げる「パイオニア」としての道を歩む決意を固めました。この思いが、今の私の原動力となり、アクアリウムの世界に新たな価値を提供し続けています。
+        </p>
+      </div>
+      <img class="story-photo-round" src="images/founder1.jpg" alt="代表">
+    </div>
+
+    <!-- 気泡装飾（中段） -->
+    <div class="bubbles-story">
+      <img src="images/bubble.png" width="27"  height="24"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="165" height="187" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="40"  height="45"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="35"  height="40"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="51"  height="57"  alt="" aria-hidden="true">
+    </div>
+
+    <!-- 代表写真2（丸、右寄せ） -->
+    <div class="story-row2">
+      <img class="story-photo-round" src="images/founder2.jpg" alt="代表">
+    </div>
+
+    <!-- 気泡装飾（下段） -->
+    <div class="bubbles-story" style="margin-bottom:36px;">
+      <img src="images/bubble.png" width="27"  height="24"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="180" height="204" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="35"  height="40"  alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="51"  height="57"  alt="" aria-hidden="true">
+    </div>
+
+    <div class="five-smiles">
+      <div class="five-title">５つの笑顔とは？</div>
+      <ul class="smile-list">
+        <li>1. お客様の笑顔　― 理想の空間が実現した時の喜び</li>
+        <li>2. 従業員の笑顔　― 癒される職場環境での働きがい</li>
+        <li>3. 来客者の笑顔　― 印象的な空間での特別な体験</li>
+        <li>4. 魚たちの笑顔　― 最適な環境で健康に泳ぐ姿</li>
+        <li>5. 私たちの笑顔　― お客様の成功を支えられる誇り</li>
+      </ul>
+    </div>
+
+    <!-- 気泡装飾（最下段） -->
+    <div class="bubbles-story" style="margin-bottom:28px;">
+      <img src="images/bubble.png" width="27" height="24" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27" height="24" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="40" height="45" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="72" height="81" alt="" aria-hidden="true">
+      <img src="images/bubble.png" width="27" height="35" alt="" aria-hidden="true">
+    </div>
+
+    <div class="story-closing">
+      この想いを形にして30年。数多くの空間に「自然との共生」をお届けしてきました。<br>
+      <strong>あなたがいる空間もきっと変わります！</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="sec bg-gray" id="about">
+  <div class="sec-inner">
+    <h2 class="sec-heading">会社概要</h2>
+    <div class="sec-dots">・　・　・</div>
+    <div style="overflow-x:auto;">
+      <table class="about-table">
+        <tr><th>会社名</th><td>有限会社ネオ・ドリーム</td></tr>
+        <tr><th>代表取締役</th><td>阪野　好孝</td></tr>
+        <tr><th>所在地</th><td>〒582-0027 大阪府柏原市円明町17-8</td></tr>
+        <tr><th>設立</th><td>平成6年7月</td></tr>
+        <tr><th>資本金</th><td>300万円</td></tr>
+        <tr><th>電話番号</th><td>TEL: 072-977-3688　/　FAX: 072-977-5735</td></tr>
+        <tr><th>従業員数</th><td>8名</td></tr>
+        <tr><th>業務内容</th><td>・熱帯魚及び関連機器の販売<br>・アクアリウムのリース及びメンテナンス<br>・各種イベントなどにおけるアクアリウムのレンタル<br>・特殊水槽や大型水槽の企画・デザイン・設計・施工・管理運営等、アクアリウム・イケス・活魚水槽の総合プロデュース</td></tr>
+        <tr><th>取引銀行</th><td>大阪市信用金庫阿倍野支店<br>大阪厚生信用金庫針中支店<br>大阪信用金庫今宮戎支店</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="sec" id="contact" style="background:#fff;">
+  <div class="sec-inner">
+    <h2 class="sec-heading">お問い合わせフォーム</h2>
+    <div class="sec-dots">・　・　・</div>
+    <p class="contact-note">
+      ご相談やお見積り依頼は、こちらからお気軽にご連絡ください。<br>
+      2営業日以内に、担当者からご返信させていただきます。<br>
+      ※お問い合わせフォームの返信は、登録メールアドレス宛に致します。
+    </p>
+    <!--
+      ★ Formspree設定:
+      1. https://formspree.io/ で無料アカウント作成
+      2. 新しいフォームを作成してフォームIDを取得
+      3. YOUR_FORM_ID を取得したIDに書き換える
+    -->
+    <form class="form-grid" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label class="form-label">お問い合わせ項目<span class="req">必須</span></label>
+        <select name="inquiry_type" class="form-select" required>
+          <option value="">選択してください</option>
+          <option value="無料相談">無料相談</option>
+          <option value="お見積り">お見積り</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">お名前<span class="req">必須</span></label>
+        <input type="text" name="name" class="form-input" placeholder="例：山田 太郎" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">フリガナ<span class="req">必須</span></label>
+        <input type="text" name="furigana" class="form-input" placeholder="例：ヤマダ タロウ" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス<span class="req">必須</span></label>
+        <input type="email" name="email" class="form-input" placeholder="例：info@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号</label>
+        <input type="tel" name="phone" class="form-input" placeholder="例：072-977-3688">
+      </div>
+      <div class="form-group">
+        <label class="form-label">住所<span class="req">必須</span></label>
+        <input type="text" name="address" class="form-input" placeholder="例：大阪府大阪市〇〇区〇〇" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">お問い合わせ内容</label>
+        <textarea name="message" class="form-textarea" placeholder="ご相談内容をご記入ください"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">送信する</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img class="footer-logo" src="images/logo.png" alt="NeoDream">
+        <div class="footer-co">有限会社ネオ・ドリーム</div>
+        <div class="footer-addr">〒582-0027 大阪府柏原市円明町17-8<br>TEL: 072-977-3688　/　FAX: 072-977-5735</div>
+      </div>
+      <div class="footer-right">
+        <a href="tel:072-977-3688" class="footer-tel">072-977-3688</a>
+        <div class="footer-hours">営業時間 9:00-17:00 土日祝日休み</div>
+        <a href="#contact" class="btn-footer">お問い合わせはこちら</a>
+      </div>
+    </div>
+    <div class="footer-copy">Copyright © 有限会社ネオ・ドリーム All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+  // --- Hero Slider ---
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.slide-dot');
+  const ctr    = document.getElementById('slideCounter');
+  let cur = 0;
+
+  function goSlide(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    ctr.textContent = (cur + 1) + '/' + slides.length;
+  }
+  setInterval(() => goSlide(cur + 1), 5000);
+
+  // --- FAQ ---
+  function toggleFaq(item) { item.classList.toggle('open'); }
+
+  // --- Smooth Scroll ---
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth' }); }
+    });
+  });
+
+  // --- Scroll Fade-in ---
+  const fadeEls = document.querySelectorAll('.reason-card,.plan-card,.t-card,.gallery-item,.stat-col');
+  fadeEls.forEach(el => { el.style.cssText += 'opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease'; });
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, { threshold: 0.1 }).observe || fadeEls.forEach(el => el.style.opacity='1'); // fallback
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
